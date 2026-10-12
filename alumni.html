@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ကျောင်းသားဟောင်းများ စာရင်းသွင်းရန် - Sitagu Alumni Yangon</title>
+    <style>
+        /* Modern Typography & Reset */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@300;400;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans Myanmar', 'Pyidaungsu', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-color: #5c0612; /* ကတ္တီပါနီညိုရောင် */
+            --secondary-color: #d4af37; /* ရွှေအိုရောင် */
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --bg-light: #fdfbf7;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        /* Modern Navigation Bar */
+        header {
+            background-color: rgba(92, 6, 18, 0.98);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .nav-container {
+            width: 85%;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 55px;
+            width: 55px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .logo h1 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .logo span {
+            font-size: 12px;
+            color: #fff;
+            display: block;
+            font-weight: 300;
+            margin-top: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: #f5f5f5;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 400;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--primary-color);
+            background-color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        /* Styled Sections & Form */
+        section {
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            color: var(--primary-color);
+            font-size: 30px;
+            font-weight: 700;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .form-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group label span {
+            color: #d63031;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #dfe6e9;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #45040d;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 15px;
+            display: none;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #a0a0a0;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 14px;
+            border-top: 3px solid var(--secondary-color);
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            .form-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo-box">
+                <img src="logo.png" alt="Sitagu Alumni Logo" class="logo-img">
+                <div class="logo">
+                    <h1>SITAGU ALUMNI</h1>
+                    <span>YANGON ASSOCIATION</span>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html#home">ပင်မစာမျက်နှာ</a></li>
+                    <li><a href="index.html#about">အသင်းအကြောင်း</a></li>
+                    <li><a href="index.html#activities">လှုပ်ရှားမှုများ</a></li>
+                    <li><a href="index.html#gallery">မှတ်တမ်းဓာတ်ပုံ</a></li>
+                    <li><a href="alumni.html" class="active">ကျောင်းသားဟောင်းများ</a></li>
+                    <li><a href="index.html#contact">ဆက်သွယ်ရန်</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section>
+        <div class="section-title">
+            <h2>ကျောင်းသားဟောင်းများ စာရင်းသွင်းရန်</h2>
+        </div>
+
+        <div class="form-card">
+            <div id="alertBox" class="alert">အချက်အလက်များ အောင်မြင်စွာ ပေးပို့ပြီးပါပြီ။</div>
+
+            <form id="alumniForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">အမည် <span>*</span></label>
+                    <input type="text" id="name" name="name" class="form-control" required placeholder="သင်၏အမည်ပြည့် ထည့်ပါ">
+                </div>
+
+                <div class="form-group">
+                    <label for="parent_name">မိဘအမည်</label>
+                    <input type="text" id="parent_name" name="parent_name" class="form-control" placeholder="မိဘအမည် ထည့်ပါ">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="attendance_year">တက်ရောက်ခဲ့သည့်နှစ်</label>
+                        <input type="text" id="attendance_year" name="attendance_year" class="form-control" placeholder="ဥပမာ - 2018-2021">
+                    </div>
+                    <div class="form-group">
+                        <label for="register_no">မှတ်ပုံတင်အမှတ်</label>
+                        <input type="text" id="register_no" name="register_no" class="form-control" placeholder="မှတ်ပုံတင်အမှတ်">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="class_degree">တန်း/ဘွဲ့ (Class / Degree)</label>
+                    <input type="text" id="class_degree" name="class_degree" class="form-control" placeholder="ဥပမာ - B.A (Buddhism)">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">ဖုန်းနံပါတ် <span>*</span></label>
+                    <input type="tel" id="phone" name="phone" class="form-control" required placeholder="ဆက်သွယ်ရန် ဖုန်းနံပါတ်">
+                </div>
+
+                <div class="form-group">
+                    <label for="address">နေရပ်လိပ်စာ</label>
+                    <textarea id="address" name="address" class="form-control" placeholder="လက်ရှိနေရပ်လိပ်စာ အပြည့်အစုံ"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="photo">ကိုယ်ပိုင်ဓာတ်ပုံ (Photo)</label>
+                    <input type="file" id="photo" name="photo" class="form-control" accept="image/*">
+                </div>
+
+                <button type="submit" class="btn-submit">စာရင်းပေးသွင်းမည်</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Sitagu Alumni Association (Yangon). All rights reserved.</p>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const alertBox = document.getElementById('alertBox');
+            alertBox.classList.add('alert-success');
+            
+            // Form ရှင်းလင်းခြင်း
+            document.getElementById('alumniForm').reset();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
